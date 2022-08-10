@@ -1,0 +1,97 @@
+#!/bin/bash
+
+# props
+self_path=~/Utils/GenerateProject/Cpp
+default_path=$self_path/DefaultProject
+
+# actions
+action_signal="--"
+src_ext=".cpp"
+hdr_ext=".hpp"
+std="c++17"
+project_name="MyProject"
+default_entry_name="App"
+
+# misc
+wait_interval="0.5"
+
+generate-cpp-project (){
+    project_name=$1
+    
+    action="none"
+    for param in ${@:2}
+    do
+        if []
+        if [ $action != "none" ]; then
+            if [ $param[0] == $action_signal[0] && $param[1] == $action_signal[1] ]; then
+                action=$param
+            fi
+        else
+        case $action in
+            --src-ext)
+                test [ $param[1] != "." ] && $param=".$param"
+    	        src_ext=$param
+    	        ;;
+    	    --hdr-ext)
+    	        test [ $param[1] != "." ] && $param=".$param"
+    	        hdr_ext=$param
+    	        ;;
+    	    --version)
+    	        version=$param
+    	        ;;
+    	esac
+        fi
+    done
+    
+    # copy default package
+    cp -r $default_path $(pwd)/$default_entry_name
+    
+    # create main file
+    touch $(pwd)/$project_name/$default_entry_name$src_ext
+    
+    # move to project's path
+    cd $(pwd)/$project_name
+    
+    # welcome message
+    echo 'From C++: std::cout << "Happy Coding!";'
+}
+
+gcpcm (){
+    case $1 in
+        build)
+            (
+                cmake -B ./build
+                sleep $wait_interval
+                cmake --build ./build
+            )
+        ;;
+        run)
+            (
+            	# 1: cmake -B ./build -DOPTION_NAME=ON/OFF
+                cmake -B ./build
+                sleep $wait_interval
+                cmake --build ./build
+                sleep $wait_interval
+                echo "----------------------------------Execution Output----------------------------------"
+                #./build/$project_name
+                ./build/$default_entry_name
+            )
+            
+        ;;
+    esac
+}
+
+gcpr (){
+    
+}
+
+
+
+
+
+
+
+
+
+
+

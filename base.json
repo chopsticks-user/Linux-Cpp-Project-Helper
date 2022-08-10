@@ -1,0 +1,43 @@
+{
+    "name": {
+        "keys": "--name -n",
+        "default": "MyApplication",
+        "options": ""
+    },
+    "entry": {
+        "keys": "--entry -e",
+        "default": "Application",
+        "options": ""
+    },
+    "mode": {
+        "keys": "--mode -m",
+        "default": "default",
+        "options": "default, query, modify"
+    },
+    "type": {
+        "keys": "--type -t",
+        "default": "child",
+        "options": "child, parent, sibling"
+    },
+    "template": {
+        "keys": "--template -t",
+        "default": "default",
+        "options": "default, seperate"
+    },
+    "version": {
+        "keys": "--version -v",
+        "default": "c++17",
+        "options": "11, 14, 17, 20"
+    },
+    "header ext": {
+        "keys": "--hdrext -hx",
+        "default": "hpp",
+        "options": "hpp, h"
+    },
+    "source ext": {
+        "keys": "--srcext -sx",
+        "default": "cpp",
+        "options": "cpp, cxx, c, cx"
+    }
+    
+}

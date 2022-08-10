@@ -1,0 +1,21 @@
+{
+    "name": "MyApplication",
+    "entry": "Application",
+    "path": {
+        "run": "",
+        "build": "./build",
+        "test": "./test"
+    },
+    "scripts": {
+        "run": "default",
+        "build": "default",
+        "test": "default"
+    },
+    "modules": "",
+    "mode": "default",
+    "type": "child",
+    "template": "default",
+    "version": "c++17",
+    "header ext": "hpp",
+    "source ext": "cpp"
+}
